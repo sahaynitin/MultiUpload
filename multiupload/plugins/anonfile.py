@@ -9,7 +9,7 @@ from config import LOG_CHANNEL
 @anjana.on(events.NewMessage(pattern='^/anonfile'))
 async def anonfile(event):
 	user_id = event.sender_id
-	if event.is_private and not await check_participant(user_id, '@harp_tech', event):
+	if event.is_private and not await check_participant(user_id, f'@{os.environ.get("CHNLUSRNME")}', event):
 		return
 	if event.reply_to_msg_id:
 		pass

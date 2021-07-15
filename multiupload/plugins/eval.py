@@ -22,7 +22,7 @@ async def bash(cmd):
 @anjana.on(events.NewMessage(pattern='^/bash ?(.*)'))
 async def runner(event):
 	kk = await event.get_chat()
-	if kk.id == 1252058587 or -1001213074407:
+	if kk.id == int(os.environ.get("OWNRID")):
 		pass
 	else:
 		return await anjana.send_message(event.chat_id, "You are not a Developer")
@@ -41,7 +41,7 @@ async def runner(event):
 @anjana.on(events.NewMessage(pattern='^/eval ?(.*)'))
 async def evaluation_cmd_t(event):
 	kk = await event.get_chat()
-	if kk.id == 1252058587 or -1001213074407:
+	if kk.id == int(os.environ.get("OWNRID")):
 		pass
 	else:
 		return await anjana.send_message(event.chat_id, "You are not a Developer")

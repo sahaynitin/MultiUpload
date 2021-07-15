@@ -11,7 +11,7 @@ async def check_participant(user_id, chat_id, reply_id, cb=False):
 	except:
 		if not cb:
 			await anjana.send_message(user_id, '**You are not joined to my update channel. Please join to my update channel and start me again 👀**', buttons=[
-				Button.url('Join Now!', 't.me/harp_tech'),
+				Button.url('Join Now!', f't.me/{os.environ.get("CHNLUSRNME")}'),
 				Button.inline('Check', data='chk')
 			], reply_to=reply_id)
 		return False
@@ -26,7 +26,7 @@ s = ["CAADBAADxgkAAjQF0VL5yl4Td0utTgI",
 @anjana.on(events.CallbackQuery(pattern='chk'))
 async def _(event):
 	try:
-		await anjana(p('@harp_tech', event.sender_id))
+		await anjana(p(f'@{os.environ.get("CHNLUSRNME")}', event.sender_id))
 	except:
 		await event.answer("💬 You are not Join. Please Join to Channel.", alert=True)
 	else:
