@@ -27,7 +27,7 @@ async def gofile(event):
 	user_id = event.sender_id
 	if event.is_private and not await check_participant(user_id, f'@{os.environ.get("CHNLUSRNME")}', event):
 		return
-	if event.reply_to_msg_id: Reply with media file
+	if event.reply_to_msg_id:
 		pass
 	else:
 		return await event.edit("Please Reply to File")
