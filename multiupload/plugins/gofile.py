@@ -27,7 +27,7 @@ async def gofile(event):
 	user_id = event.sender_id
 	if event.is_private and not await check_participant(user_id, f'@{os.environ.get("CHNLUSRNME")}', event):
 		return
-	if event.reply_to_msg_id:
+	if event.reply_to_msg_id: Reply with media file
 		pass
 	else:
 		return await event.edit("Please Reply to File")
@@ -35,7 +35,7 @@ async def gofile(event):
 	async with anjana.action(event.chat_id, 'typing'):
 		await asyncio.sleep(2)
 	msg = await event.reply("**Processing...**")
-	amjana = await event.get_reply_message()
+	anjana = await event.get_reply_message("**Reply with media file...**")
 
 
 	## LOGGING TO A CHANNEL
